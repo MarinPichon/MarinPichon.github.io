@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+
+/*Responsive Full Background Image Using CSS
+https://github.com/sixrevisions/responsive-full-background-image/blob/master/responsive-full-background-image.css */
+body{
+    color: aliceblue;
+    background-image: url(data/BackgroundP5.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #000;
+    
+}
+
+
+
+p{
+    margin-top: 50rem;
+}
+
+
+img{
+    height: 20rem;
+    width: 35rem;
+    margin: auto;
+    display: flex;
+}
+
