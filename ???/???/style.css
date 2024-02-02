@@ -12,27 +12,47 @@ html {
 /*Responsive Full Background Image Using CSS
 https://github.com/sixrevisions/responsive-full-background-image/blob/master/responsive-full-background-image.css */
 body{
-    color: aliceblue;
-    background-image: url(data/BackgroundP5.jpg);
-    background-position: center center;
+    color: rgb(238, 255, 0);
+    background-image: url(data/images/BackgroundP5Night.jpg);
+    background-position: center top;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-color: #000;
+    font-size: 2rem;
+    font-weight: bold;
     
 }
 
-
-
-p{
-    margin-top: 50rem;
+a{
+    text-decoration: none;
+    color: yellow;
 }
+
+.nav-menu{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    padding: 2.5rem;
+    border-top: 0.2rem solid red;
+    border-bottom: 0.2rem solid red;
+    border-left: 10rem solid transparent; /* Ajustez la largeur selon vos besoins */
+    border-right: 10rem solid transparent; /* Ajustez la largeur selon vos besoins */
+    border-radius: 2% 2%;
+    background-color: #00000080;
+  }
 
 
 img{
-    height: 20rem;
-    width: 35rem;
+    height: 25rem;
+    width: 45rem;
     margin: auto;
     display: flex;
+}
+
+p{
+    padding: 50rem;;
 }
 
