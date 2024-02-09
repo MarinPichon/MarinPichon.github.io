@@ -1,19 +1,46 @@
+/* PARAMETRES */
+
+/* MINI RESET */
 *{
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
+
+/* AJOUT DES FONTS */
+@font-face {
+    font-family: 'Persona';
+    src: url('/data/Persona5Font/P5CardFont.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'NormalPersona';
+    src: url('/data/Persona5Font/P5NormalFont.woff') format('woff');
+}
+/* PASSAGE EN BASE 10 */
 
 html {
     font-size: 62.5%;
 }
 
+/* HEADER */
+
+header{
+    background-color: #00000080;
+    color: rgb(255, 255, 255);
+    padding-bottom: 5rem;
+    font-family: 'Persona' , Arial, Helvetica, sans-serif;
+    
+
+}
+
+/* BODY */
 
 /*Responsive Full Background Image Using CSS
 https://github.com/sixrevisions/responsive-full-background-image/blob/master/responsive-full-background-image.css */
 body{
     color: rgb(238, 255, 0);
-    background-image: url(data/images/BackgroundP5Night.jpg);
+    background-image: url(data/images/BackgroundP5DayLight.jpg);
     background-position: center top;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -23,33 +50,33 @@ body{
     font-weight: bold;
     
 }
-
 a{
+    color: rgb(255, 255, 255);
+    font-family: 'NormalPersona' , Arial, Helvetica, sans-serif;
     text-decoration: none;
-    color: yellow;
 }
 
 .nav-menu{
-    position: relative;
-    display: flex;
-    flex-direction: row;
     align-content: center;
-    justify-content: space-between;
-    padding: 2.5rem;
     border-top: 0.2rem solid red;
     border-bottom: 0.2rem solid red;
     border-left: 10rem solid transparent; /* Ajustez la largeur selon vos besoins */
     border-right: 10rem solid transparent; /* Ajustez la largeur selon vos besoins */
     border-radius: 2% 2%;
     background-color: #00000080;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2.5rem;
+    position: relative;
   }
 
 
 img{
-    height: 25rem;
-    width: 45rem;
-    margin: auto;
     display: flex;
+    height: 25rem;
+    margin: auto;
+    width: 45rem;
 }
 
 p{
