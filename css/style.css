@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #6359cd;
+  }
+  
+  .grille {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    background-color: #5f58cc;
+  }
+  
+  .generationGrille {
+    border: 1px solid #000;
+    background-color: #666;
+    width: 4rem;
+    height: 4rem;
+  }
