@@ -1,101 +1,138 @@
-const slateContainer = document.createElement("div");
-slateContainer.className = "container";
-const body = document.querySelector("body");
+const grid = document.createElement('div');
+grid.className = 'grille';
 
-const containerColor = document.createElement("div");
-containerColor.className = "containerColor";
-const color1 = document.createElement("div");
-color1.classList.add("color", "plain");
+const formGridHeight = document.createElement('input');
+formGridHeight.className = 'formGridHeight';
+formGridHeight.placeholder = 'Taille de la grille';
+formGridHeight.id = 'fdh';
 
-const color2 = document.createElement("div");
-color2.classList.add("color", "empty");
+const formPixelHeight = document.createElement('input');
+formPixelHeight.className = 'formPixelHeight';
+formPixelHeight.placeholder = 'Taille des pixels';
+formPixelHeight.id = 'fph';
 
-const color3 = document.createElement("div");
-color3.classList.add("color", "light");
+const buttonValidate = document.createElement('button');
+buttonValidate.className = 'buttonValidate';
+buttonValidate.textContent = 'Valider';
+buttonValidate.type = 'submit';
 
-const color4 = document.createElement("div");
-color4.classList.add("color", "highlight");
+const buttonDelete = document.createElement('button');
+buttonDelete.className = 'buttonDelete';
+buttonDelete.textContent = 'Réinitialiser';
+buttonDelete.type = 'submit';
 
-containerColor.append(color1, color2, color3, color4);
-body.append(slateContainer, containerColor);
+const header = document.createElement('header');
+header.className = 'header';
+header.append(formGridHeight, formPixelHeight, buttonValidate, buttonDelete);
 
-let currentClass;
+const color1 = document.createElement('div');
+color1.className = 'color1 color';
 
-const app = {
-  init: function () {
-    const inputBox = document.createElement("input");
-    inputBox.setAttribute("type", "number");
-    inputBox.setAttribute("placeholder", "Taille de la grille");
-    inputBox.className = "inputBox";
+const color2 = document.createElement('div');
+color2.className = 'color2 color';
 
-    const inputSize = document.createElement("input");
-    inputSize.setAttribute("type", "number");
-    inputSize.setAttribute("placeholder", "Taille des pixels");
-    inputSize.className = "inputSize";
+const color3 = document.createElement('div');
+color3.className = 'color3 color';
 
-    const button = document.createElement("button");
-    button.className = "buttonValidation";
-    button.textContent = "Valider";
 
-    const form = document.querySelector(".configuration");
+const palette = document.createElement('div');
+palette.className = 'palette';
+palette.append(color1, color2, color3);
 
-    form.append(inputBox, inputSize, button);
+const mainSentence = document.createElement('p');
+mainSentence.className = 'mainSentence';
+mainSentence.innerText = 'Grille de 5x5 avec une taille de 20 pixels générées !'
 
-    button.addEventListener("click", function (event) {
-      event.preventDefault();
-      let userChoice = inputBox.value;
-      let userPixelChoice = inputSize.value;
+document.body.append(header, mainSentence, grid, palette,);
 
-      app.generateSlate(userChoice, userPixelChoice);
+let currentColor = ""
+let gridIsGenerated = false;
+
+function inputChangeColor() {
+    const colors = document.querySelectorAll('.color');
+    colors.forEach((color) => {
+        const changeColor = document.createElement('input');
+        changeColor.setAttribute('type', 'color');
+        changeColor.className = 'changeColor';
+
+        color.appendChild(changeColor);
+        const clickInput = changeColor.addEventListener("change", (event) => {
+            let selectedColor = event.target.value;
+            currentColor = selectedColor;
+            color.style.backgroundColor = selectedColor;
+            console.log(selectedColor);
+
+        })
     });
-  },
+}
 
-  generateSlate: function (userChoice, userPixelChoice) {
-    slateContainer.innerHTML = "";
+function gridGenerator() {
+    grid.innerHTML = '';
+    const pixelsHeight = formPixelHeight.value;
+    for (let i = 0; i < formGridHeight.value; i++) {
+        const row = document.createElement('div');
+        row.className = 'row';
+        
 
-    for (let i = 0; i < userChoice; i++) {
-      const row = document.createElement("div");
-      slateContainer.append(row);
-      for (let j = 0; j < userChoice; j++) {
-        const cell = document.createElement("div");
-        cell.className = "cell";
-        cell.style.width = userPixelChoice + "px";
-        cell.style.height = userPixelChoice + "px";
-        row.append(cell);
-        app.changeColor(cell);
-      }
+    for (let j = 0; j < formGridHeight.value; j++) {
+        const colonne = document.createElement('div');
+        colonne.className = 'colonne';
+        colonne.style.width = Number(formPixelHeight.value) + "px";
+        colonne.style.height = Number(formPixelHeight.value) + "px";
+        row.appendChild(colonne);
+        const clickColonne = colonne.addEventListener("click", (event) => {
+            colonne.style.backgroundColor = currentColor;
+        });
     }
-  },
-
-  changeColor: function (element) {
-    element.addEventListener("click", function () {
-      // UTILISATION DU TOGGLE POUR PASSER DU GRIS AU NOIR (ETAPE 2)
-      // (element.classList.toggle("cellBlack"));
-
-      // AJOUT D'UN EVENTLISTENER SUR CHAQUE DIV DE COULEUR, POUR MODIFIER LA VARIABLE currentClass
-      color1.addEventListener("click", function () {
-        currentClass = "plain";
-      });
-
-      color2.addEventListener("click", function () {
-        currentClass = "empty";
-      });
-
-      color3.addEventListener("click", function () {
-        currentClass = "light";
-      });
-
-      color4.addEventListener("click", function () {
-        currentClass = "highlight";
-      });
-
-      element.classList.remove("plain", "empty", "light", "highlight");
-      element.classList.add(currentClass);
-      // CI DESSUS ON AJOUTE LA VARIABLE currentClass
-      //ET ON ENLEVE TOUTES LES POSSIBLES CLASSES PRESENTES SUR LA CELLULE
-      //(on remove après pour pas enlever la classe qu'on vient d'ajouter)
-    });
-  },
+    grid.appendChild(row);
+    gridIsGenerated = true;
+    
+    showSentence()
+    console.log(gridIsGenerated);
+}
 };
 
-app.init();
+
+const validateChoice = buttonValidate.addEventListener("click", (event) => {
+    event.preventDefault();
+    gridGenerator();
+});
+
+const deleteGrid = buttonDelete.addEventListener("click", (event) => {
+    event.preventDefault();
+    gridIsGenerated = false;
+    console.log(gridIsGenerated);
+    grid.innerHTML = '';
+    showSentence()
+});
+
+function showSentence() {
+    
+    if (gridIsGenerated === true) {
+        mainSentence.style.visibility = 'visible';
+        mainSentence.innerText = "Grille de " + formGridHeight.value + "x" + formGridHeight.value + 
+        " avec une taille de " + formPixelHeight.value + " pixels générées !"
+    }
+    else {
+        mainSentence.style.visibility = 'hidden';
+    }
+};
+
+
+const firstColor = color1.addEventListener("click", (event) => {
+    currentColor = getComputedStyle(event.target).backgroundColor;
+    console.log(currentColor);
+    });
+
+const secondColor = color2.addEventListener("click", (event) => {
+    currentColor = getComputedStyle(event.target).backgroundColor;
+    console.log(currentColor);
+    });
+
+const thirdColor = color3.addEventListener("click", (event) => {
+    currentColor = getComputedStyle(event.target).backgroundColor;
+    console.log(currentColor);
+    });
+    
+inputChangeColor();
+    
