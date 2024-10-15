@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #6359cd;
+  }
+  
+  .buttonDelete{
+    background-color: #028dff;
+    color: #fff;
+    font-size: 2rem;
+    height: 4.8rem;
+    width: 11rem;
+    border: none;
+    border-radius: 1rem 1rem;
+    margin-left: 1rem;
+  }
+  
+  .mainSentence {
+    margin-top: 1.5rem;
+    font-size: 2.5rem;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: underline;
+    visibility: hidden;
+  }
+  
+  .changeColor {
+    width: 2rem;
+    height: 2rem;
+    background-color: #000;
+    outline: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;  
+  }
+  
+  
+  .grille {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+  }
+  
+  .row {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .colonne {
+    background-color: #fff;
+    border: 2px solid grey;
+  }
+  
+  .header {
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    width: 100%;
+  }
+  
+  .formGridHeight {
+    background-color: #fff;
+    font-size: 2rem;
+    height: 5rem;
+    width: 20rem;
+    border-radius: 1rem 0 0 1rem;
+    border: 2px solid black;
+  }
+  
+  .formGridHeight::placeholder {
+    text-align: center;
+  }
+  
+  .formPixelHeight {
+    background-color: #fff;
+    font-size: 2rem;
+    height: 5rem;
+    width: 20rem;
+    border-radius: 0 1rem 1rem 0;
+    border: 2px solid black;
+  }
+  
+  .formPixelHeight::placeholder {
+    text-align: center;
+  }
+  
+  .buttonValidate {
+    background-color: #9124f8;
+    color: #fff;
+    font-size: 2rem;
+    height: 4.8rem;
+    width: 8rem;
+    border: none;
+    border-radius: 1rem 1rem;
+    margin-left: 0.1rem;
+  }
+  
+  .palette {
+    border: 2px solid #000;
+    border-radius: 1.5rem;
+    margin-bottom: 0.2rem;
+    height: 6rem;
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position : fixed;
+    bottom : 0;
+    right : 0;
+  }
+  
+  .color{
+    position: relative;
+  }
+  
+  .color1{
+    height: 5rem;
+    width: 5rem;
+    color: #ff0000;
+    background-color: #ff0000;
+    border-radius: 25px;
+    border: 2px solid #000;
+    
+  }
+  .color2{
+    height: 5rem;
+    width: 5rem;
+    background-color: #4dfff9;
+    border-radius: 25px;
+    border: 2px solid #000;
+  }
+  .color3{
+    height: 5rem;
+    width: 5rem;
+    background-color: #00ff00;
+    border-radius: 25px;
+    border: 2px solid #000; 
+  }

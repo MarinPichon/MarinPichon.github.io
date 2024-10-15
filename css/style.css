@@ -77,6 +77,8 @@ body {
   align-items: center;
   height: 15vh;
   width: 100%;
+  position: fixed;
+  top: 0;
 }
 
 .formGridHeight {

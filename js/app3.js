@@ -1,3 +1,5 @@
+function app() {
+
 const grid = document.createElement('div');
 grid.className = 'grille';
 
@@ -61,7 +63,6 @@ function inputChangeColor() {
             currentColor = selectedColor;
             color.style.backgroundColor = selectedColor;
             console.log(selectedColor);
-
         })
     });
 }
@@ -86,7 +87,6 @@ function gridGenerator() {
     }
     grid.appendChild(row);
     gridIsGenerated = true;
-    
     showSentence()
     console.log(gridIsGenerated);
 }
@@ -96,6 +96,8 @@ function gridGenerator() {
 const validateChoice = buttonValidate.addEventListener("click", (event) => {
     event.preventDefault();
     gridGenerator();
+    formPixelHeight.value = '';
+    formGridHeight.value = '';
 });
 
 const deleteGrid = buttonDelete.addEventListener("click", (event) => {
@@ -135,4 +137,7 @@ const thirdColor = color3.addEventListener("click", (event) => {
     });
     
 inputChangeColor();
+};
+
+app();
     
