@@ -68,8 +68,7 @@ function inputChangeColor() {
 }
 
 function gridGenerator() {
-    grid.innerHTML = '';
-    const pixelsHeight = formPixelHeight.value;
+    
     for (let i = 0; i < formGridHeight.value; i++) {
         const row = document.createElement('div');
         row.className = 'row';
@@ -88,6 +87,7 @@ function gridGenerator() {
     grid.appendChild(row);
     gridIsGenerated = true;
     showSentence()
+    
     console.log(gridIsGenerated);
 }
 };
@@ -95,9 +95,19 @@ function gridGenerator() {
 
 const validateChoice = buttonValidate.addEventListener("click", (event) => {
     event.preventDefault();
-    gridGenerator();
+    
+    if (formGridHeight.value === '' || formPixelHeight.value === '') {
+        alert('Veuillez remplir tous les champs !'); // Message d'erreur
+        return;
+    }
+
+    grid.innerHTML = '';
+    gridGenerator(); 
+
+    formGridHeight.value = ''; 
     formPixelHeight.value = '';
-    formGridHeight.value = '';
+    
+    console.log(formGridHeight.value, formPixelHeight.value);
 });
 
 const deleteGrid = buttonDelete.addEventListener("click", (event) => {

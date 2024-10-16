@@ -43,21 +43,19 @@ buttonValidate.addEventListener('click', (event) => {
     if (isNaN(formGridHeight) && isNaN(formPixelHeight)) {
         alert('Veuillez saisir un chiffre ou nombre pour les deux champs de saisie.');
         app.gridIsGenerated = false;
-        app.resetGrid();
         return;  // Stoppe l'exécution ici si les deux champs sont incorrects
     }
     // Si la taille de la grille est incorrecte, on affiche un message et réinitialise la grille
     else if (isNaN(formGridHeight)) {
         alert('Veuillez saisir un chiffre ou nombre pour le champ de la taille de la grille.');
         app.gridIsGenerated = false;
-        app.resetGrid();
         return;  // Stoppe l'exécution ici si seulement la taille de la grille est incorrecte
     }
     // Si la taille des pixels est incorrecte, on affiche un message et réinitialise la grille
     else if (isNaN(formPixelHeight)) {
         alert('Veuillez saisir un chiffre ou nombre pour le champ de la taille des pixels.');
         app.gridIsGenerated = false;
-        app.resetGrid();
+        
         return;  // Stoppe l'exécution ici si seulement la taille des pixels est incorrecte
     }
     // Appelle la fonction gridGenerator avec les valeurs de taille de la grille et des pixels
