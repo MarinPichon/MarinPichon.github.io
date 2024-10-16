@@ -62,7 +62,6 @@ function inputChangeColor() {
             let selectedColor = event.target.value;
             currentColor = selectedColor;
             color.style.backgroundColor = selectedColor;
-            console.log(selectedColor);
         })
     });
 }
@@ -87,8 +86,6 @@ function gridGenerator() {
     grid.appendChild(row);
     gridIsGenerated = true;
     showSentence()
-    
-    console.log(gridIsGenerated);
 }
 };
 
@@ -106,14 +103,11 @@ const validateChoice = buttonValidate.addEventListener("click", (event) => {
 
     formGridHeight.value = ''; 
     formPixelHeight.value = '';
-    
-    console.log(formGridHeight.value, formPixelHeight.value);
 });
 
 const deleteGrid = buttonDelete.addEventListener("click", (event) => {
     event.preventDefault();
     gridIsGenerated = false;
-    console.log(gridIsGenerated);
     grid.innerHTML = '';
     showSentence()
 });
@@ -133,17 +127,14 @@ function showSentence() {
 
 const firstColor = color1.addEventListener("click", (event) => {
     currentColor = getComputedStyle(event.target).backgroundColor;
-    console.log(currentColor);
     });
 
 const secondColor = color2.addEventListener("click", (event) => {
     currentColor = getComputedStyle(event.target).backgroundColor;
-    console.log(currentColor);
     });
 
 const thirdColor = color3.addEventListener("click", (event) => {
     currentColor = getComputedStyle(event.target).backgroundColor;
-    console.log(currentColor);
     });
     
 inputChangeColor();
