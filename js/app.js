@@ -111,7 +111,6 @@ inputChangeColor() {
 
         customButtons.addEventListener('click', (event) => {
             changeColor.click();
-            
         })
 
         const clickInput = changeColor.addEventListener("change", (event) => {
