@@ -101,12 +101,24 @@ inputChangeColor() {
         const changeColor = document.createElement('input');
         changeColor.setAttribute('type', 'color');
         changeColor.className = 'changeColor';
+        changeColor.style.display = 'none';
+        
+        const customButtons = app.createElement('button', '', '', 'customButtons');
+        customButtons.style.backgroundColor = getComputedStyle(color).backgroundColor;
 
         color.appendChild(changeColor);
+        color.appendChild(customButtons);
+
+        customButtons.addEventListener('click', (event) => {
+            changeColor.click();
+            
+        })
+
         const clickInput = changeColor.addEventListener("change", (event) => {
             let selectedColor = event.target.value;
             app.currentColor = selectedColor;
             color.style.backgroundColor = selectedColor;
+            customButtons.style.backgroundColor = selectedColor;
         })
     });
 },

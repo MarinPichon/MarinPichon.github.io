@@ -130,6 +130,16 @@
     right : 0;
   }
   
+.customButtons{
+  background-color: #000;
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 25px;
+  margin-left: 3.4rem;
+  margin-top: 0.2rem;
+  cursor: pointer;
+}
+
   .color{
     position: relative;
   }
